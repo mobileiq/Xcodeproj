@@ -70,6 +70,16 @@ module ProjectSpecs
     end
   end
 
+  describe "Xcodeproj::Project::Object::PBXResourcesBuildPhase" do
+    before do
+      @phase = @project.objects.add(PBXResourcesBuildPhase)
+    end
+
+    it "is a PBXBuildPhase" do
+      @phase.should.be.kind_of PBXBuildPhase
+    end
+  end
+
   describe "Xcodeproj::Project::Object::PBXShellScriptBuildPhase" do
     before do
       @phase = @project.objects.add(PBXShellScriptBuildPhase)

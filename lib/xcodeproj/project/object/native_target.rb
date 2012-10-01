@@ -102,6 +102,18 @@ module Xcodeproj
           build_phases.list_by_class(PBXShellScriptBuildPhase)
         end
 
+        def resources_build_phases
+          resources = build_phases.list_by_class(PBXResourcesBuildPhase)
+          # Don't want to add this in the constructor like the other phases
+          # as it's not used by static library targets so won't be used by
+          # most projects, so we create it lazily
+          if resources.size == 0
+            build_phases.list_by_class(PBXResourcesBuildPhase).new
+            resources = build_phases.list_by_class(PBXResourcesBuildPhase)
+          end
+          resources
+        end
+
         # Adds source files to the target.
         #
         # @note

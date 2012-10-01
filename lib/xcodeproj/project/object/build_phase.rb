@@ -57,6 +57,7 @@ module Xcodeproj
 
       class PBXSourcesBuildPhase < PBXBuildPhase;     end
       class PBXFrameworksBuildPhase < PBXBuildPhase;  end
+      class PBXResourcesBuildPhase < PBXBuildPhase;  end
 
       # @todo Should `files`, `input_paths`, and `output_paths` be has_many
       #       associations with file references?
